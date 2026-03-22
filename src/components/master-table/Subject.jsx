@@ -12,7 +12,7 @@ function Subject() {
   const fetchSubjects = async () => {
     try {
       setLoading(true);
-      const response = await axiosInstance.get("/subjects/fetch-all");
+      const response = await axiosInstance.get("/subjects");
       setSubjects(response.data.subjects);
     } catch (error) {
       toast.error("Failed to fetch subjects");
@@ -47,10 +47,10 @@ function Subject() {
         });
         toast.success("Subject added successfully");
       }
-
       resetForm();
       fetchSubjects();
     } catch (error) {
+      console.log(error);
       toast.error("Operation failed");
     } finally {
       setLoading(false);
@@ -64,7 +64,7 @@ function Subject() {
   };
 
   const resetForm = () => {
-    setSubjectName("");
+    setName("");
     setDescription("");
     setEditId(null);
   };

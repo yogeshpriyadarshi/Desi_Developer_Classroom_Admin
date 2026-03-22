@@ -13,7 +13,7 @@ function Topic() {
 
   const fetchSubjects = async () => {
     try {
-      const response = await axiosInstance.get("/subjects/fetch-all");
+      const response = await axiosInstance.get("/subjects");
       setSubjects(response.data.subjects);
     } catch (error) {
       toast.error("Failed to fetch subjects");

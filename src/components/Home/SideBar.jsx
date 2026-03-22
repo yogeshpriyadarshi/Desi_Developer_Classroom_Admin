@@ -3,10 +3,10 @@ import { FaBook, FaDumbbell, FaQuestionCircle, FaList } from "react-icons/fa";
 
 function SideBar() {
   const sidebar = [
-    { name: "master-table", icon: <FaBook /> },
-    { name: "add-question", icon: <FaQuestionCircle /> },
-    { name: "question-manager", icon: <FaList /> },
-    { name: "questions/in-active", icon: <FaList /> },
+    { path: "master-table", name: "Master Table", icon: <FaBook /> },
+    { path: "add-question", name: "Add Question", icon: <FaQuestionCircle /> },
+    { path: "question-manager", name: "Question Manager", icon: <FaList /> },
+    { path: "concept", name: "Concept", icon: <FaList /> },
   ];
 
   return (
@@ -14,7 +14,7 @@ function SideBar() {
       {sidebar.map((item) => (
         <Link
           key={item.name}
-          to={`/${item.name}`}
+          to={`/${item.path}`}
           className="flex items-center gap-3 text-blue-500 text-lg border border-blue-500 p-2 rounded-md hover:bg-blue-50"
         >
           {item.icon}
