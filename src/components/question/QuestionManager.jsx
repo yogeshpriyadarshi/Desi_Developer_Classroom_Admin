@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { toast } from "react-toastify";
+import RichTextEditor from "../../utils/RichTextEditor";
 
 function QuestionManager() {
   const [subjects, setSubjects] = useState([]);
@@ -18,7 +19,7 @@ function QuestionManager() {
   const [form, setForm] = useState({});
 
   const fetchSubjects = async () => {
-    const res = await axiosInstance.get("/subjects/fetch-all");
+    const res = await axiosInstance.get("/subjects");
     setSubjects(res.data.subjects);
   };
 
@@ -241,12 +242,10 @@ function QuestionManager() {
                 </label>
 
                 {/* Explanation */}
-                <textarea
+                <RichTextEditor
                   className="border p-2 rounded w-full"
                   value={form.explanation}
-                  onChange={(e) =>
-                    setForm({ ...form, explanation: e.target.value })
-                  }
+                  onChange={(value) => setForm({ ...form, explanation: value })}
                 />
 
                 <div className="flex gap-3">

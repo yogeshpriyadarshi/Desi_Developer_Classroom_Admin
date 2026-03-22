@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { toast } from "react-toastify";
+import RichTextEditor from "../../utils/RichTextEditor";
 
 function AddQuestion() {
   const [subjects, setSubjects] = useState([]);
@@ -17,7 +18,7 @@ function AddQuestion() {
 
   const fetchSubjects = async () => {
     try {
-      const res = await axiosInstance.get("/subjects/fetch-all");
+      const res = await axiosInstance.get("/subjects");
       setSubjects(res.data.subjects);
     } catch {
       toast.error("Failed to load subjects");
@@ -124,11 +125,11 @@ function AddQuestion() {
         </div>
 
         {/* Question */}
-        <textarea
+        <RichTextEditor
           placeholder="Enter Question"
           className="w-full border rounded p-3"
           value={question}
-          onChange={(e) => setQuestion(e.target.value)}
+          onChange={(value) => setQuestion(value)}
         />
 
         {/* Options */}
@@ -160,11 +161,9 @@ function AddQuestion() {
         </select>
 
         {/* Explanation */}
-        <textarea
-          placeholder="Explanation"
-          className="w-full border rounded p-3"
+        <RichTextEditor
           value={explanation}
-          onChange={(e) => setExplanation(e.target.value)}
+          onChange={(value) => setExplanation(value)}
         />
 
         {/* Button */}
