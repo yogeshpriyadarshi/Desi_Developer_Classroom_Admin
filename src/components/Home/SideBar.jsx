@@ -8,6 +8,8 @@ function SideBar() {
     { path: "question-manager", name: "Question Manager", icon: <FaList /> },
     { path: "concept", name: "Concept", icon: <FaList /> },
     { path: "dsa", name: "DSA", icon: <FaDumbbell /> },
+    { path: "interview", name: "Interview", icon: <FaDumbbell /> },
+    { path: "dsa-list", name: "DSA List", icon: <FaList /> },
   ];
 
   return (

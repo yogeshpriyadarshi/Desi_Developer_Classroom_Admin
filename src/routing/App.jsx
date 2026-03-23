@@ -14,6 +14,8 @@ import QuestionManager from "../components/question/QuestionManager";
 import { ToastContainer } from "react-toastify";
 import ConceptForm from "../components/concept/ConceptForm";
 import DSA from "../components/dsa/DSA";
+import Interview from "../components/inteview/Interview";
+import DsaList from "../components/dsa/DsaList";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
             <Route path="/question/edit/:id" element={<EditQuestion />} />
             <Route path="concept" element={<ConceptForm />} />
             <Route path="dsa" element={<DSA />} />
+            <Route path="interview" element={<Interview />} />
+            <Route path="dsa-list" element={<DsaList />} />
           </Route>
         </Route>
       </Routes>

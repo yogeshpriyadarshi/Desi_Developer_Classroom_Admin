@@ -8,8 +8,12 @@ function DSA() {
   const [subjectId, setSubjectId] = useState("");
   const [topicId, setTopicId] = useState("");
 
+  const [title, setTitle] = useState("");
   const [question, setQuestion] = useState();
   const [explanation, setExplanation] = useState();
+  const [difficulty, setDifficulty] = useState("");
+  const [source, setSource] = useState("");
+  const [sourceLink, setSourceLink] = useState("");
 
   const [dsa, setDsa] = useState([]);
 
@@ -46,9 +50,13 @@ function DSA() {
 
   const addDsa = async () => {
     const response = await axiosInstance.post("/dsa/", {
+      title,
       topic: topicId,
       question,
       explanation,
+      difficulty,
+      source,
+      sourceLink,
     });
     setDsa(response.data);
   };
@@ -77,6 +85,46 @@ function DSA() {
         <div className="flex flex-col gap-4">
           <h1 className="text-2xl font-bold">Add Question</h1>
           <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="border border-gray-300 rounded-md px-4 py-2"
+              />
+              {/* difficulty */}
+              <select
+                value={difficulty}
+                onChange={(e) => setDifficulty(e.target.value)}
+                className="border border-gray-300 rounded-md px-4 py-2"
+              >
+                <option value="">Select Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+              {/* source */}
+              <select
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                className="border border-gray-300 rounded-md px-4 py-2"
+              >
+                <option value="">Select Source</option>
+                <option value="geeksforgeeks">GeeksforGeeks</option>
+                <option value="leetcode">LeetCode</option>
+                <option value="hackerrank">HackerRank</option>
+              </select>
+              {/* source link */}
+              <input
+                type="text"
+                id="sourceLink"
+                value={sourceLink}
+                onChange={(e) => setSourceLink(e.target.value)}
+                className="border border-gray-300 rounded-md px-4 py-2"
+              />
+            </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="question">Question</label>
               <RichTextEditor
