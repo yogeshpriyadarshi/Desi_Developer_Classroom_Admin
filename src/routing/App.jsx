@@ -13,6 +13,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import QuestionManager from "../components/question/QuestionManager";
 import { ToastContainer } from "react-toastify";
 import ConceptForm from "../components/concept/ConceptForm";
+import DSA from "../components/dsa/DSA";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/questions/in-active" element={<InActiveQuestion />} />
             <Route path="/question/edit/:id" element={<EditQuestion />} />
             <Route path="concept" element={<ConceptForm />} />
+            <Route path="dsa" element={<DSA />} />
           </Route>
         </Route>
       </Routes>

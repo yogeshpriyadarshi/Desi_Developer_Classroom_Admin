@@ -7,6 +7,7 @@ function SideBar() {
     { path: "add-question", name: "Add Question", icon: <FaQuestionCircle /> },
     { path: "question-manager", name: "Question Manager", icon: <FaList /> },
     { path: "concept", name: "Concept", icon: <FaList /> },
+    { path: "dsa", name: "DSA", icon: <FaDumbbell /> },
   ];
 
   return (
