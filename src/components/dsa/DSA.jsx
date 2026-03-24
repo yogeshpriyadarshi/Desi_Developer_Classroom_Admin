@@ -9,8 +9,8 @@ function DSA() {
   const [topicId, setTopicId] = useState("");
 
   const [title, setTitle] = useState("");
-  const [question, setQuestion] = useState();
-  const [explanation, setExplanation] = useState();
+  const [question, setQuestion] = useState("");
+  const [explanation, setExplanation] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [source, setSource] = useState("");
   const [sourceLink, setSourceLink] = useState("");
@@ -49,6 +49,8 @@ function DSA() {
   }, [topicId]);
 
   const addDsa = async () => {
+    console.log(question);
+    console.log(explanation);
     const response = await axiosInstance.post("/dsa/", {
       title,
       topic: topicId,
@@ -136,7 +138,7 @@ function DSA() {
               <label htmlFor="explanation">Explanation</label>
               <RichTextEditor
                 value={explanation}
-                onChange={(e) => setExplanation(e.target.value)}
+                onChange={(value) => setExplanation(value)}
               />
             </div>
             <button
