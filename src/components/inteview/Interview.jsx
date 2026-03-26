@@ -8,8 +8,8 @@ function Interview() {
   const [subjectId, setSubjectId] = useState("");
   const [topicId, setTopicId] = useState("");
 
-  const [question, setQuestion] = useState();
-  const [explanation, setExplanation] = useState();
+  const [question, setQuestion] = useState("");
+  const [explanation, setExplanation] = useState("");
 
   const [interview, setInterview] = useState();
 
@@ -34,6 +34,7 @@ function Interview() {
   }, [subjectId]);
 
   const addInterview = async () => {
+    console.log(explanation);
     const response = await axiosInstance.post("/interview", {
       topic: topicId,
       question,
@@ -91,7 +92,7 @@ function Interview() {
               <label htmlFor="explanation">Explanation</label>
               <RichTextEditor
                 value={explanation}
-                onChange={(e) => setExplanation(e.target.value)}
+                onChange={(value) => setExplanation(value)}
               />
             </div>
             <button
