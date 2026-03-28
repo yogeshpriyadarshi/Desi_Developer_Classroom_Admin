@@ -10,6 +10,7 @@ function SideBar() {
     { path: "dsa", name: "DSA", icon: <FaDumbbell /> },
     { path: "interview", name: "Interview", icon: <FaDumbbell /> },
     { path: "dsa-list", name: "DSA List", icon: <FaList /> },
+    { path: "interview-list", name: "Interview List", icon: <FaList /> },
   ];
 
   return (

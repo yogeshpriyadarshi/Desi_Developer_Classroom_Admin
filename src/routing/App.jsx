@@ -16,6 +16,8 @@ import ConceptForm from "../components/concept/ConceptForm";
 import DSA from "../components/dsa/DSA";
 import Interview from "../components/inteview/Interview";
 import DsaList from "../components/dsa/DsaList";
+import ListInterview from "../components/inteview/ListInterview";
+import EditInterview from "../components/inteview/EditInterview";
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
             <Route path="dsa" element={<DSA />} />
             <Route path="interview" element={<Interview />} />
             <Route path="dsa-list" element={<DsaList />} />
+            <Route path="interview-list" element={<ListInterview />} />
+            <Route path="interview/edit/:id" element={<EditInterview />} />
           </Route>
         </Route>
       </Routes>

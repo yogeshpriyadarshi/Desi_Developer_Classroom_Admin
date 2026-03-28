@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import RichTextEditor from "../../utils/RichTextEditor";
+import { toast } from "react-toastify";
 
 function Interview() {
   const [subject, setSubject] = useState([]);
@@ -40,6 +41,9 @@ function Interview() {
       question,
       explanation,
     });
+    setQuestion("");
+    setExplanation("");
+    toast.success("Interview question added successfully");
     setInterview(response.data.interview);
   };
 
