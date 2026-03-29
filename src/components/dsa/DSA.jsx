@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import RichTextEditor from "../../utils/RichTextEditor";
+import { toast } from "react-toastify";
 
 function DSA() {
   const [subject, setSubject] = useState([]);
@@ -49,8 +50,6 @@ function DSA() {
   }, [topicId]);
 
   const addDsa = async () => {
-    console.log(question);
-    console.log(explanation);
     const response = await axiosInstance.post("/dsa/", {
       title,
       topic: topicId,
@@ -61,6 +60,7 @@ function DSA() {
       sourceLink,
     });
     setDsa(response.data);
+    toast.success("DSA question added successfully");
   };
 
   return (

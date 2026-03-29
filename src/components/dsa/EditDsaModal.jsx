@@ -102,17 +102,41 @@ function EditDsaModal({ selectedDsa, onClose, onUpdate }) {
         <div>
           <label className="font-medium">Question</label>
           <RichTextEditor
+            key={formData.question}
             value={formData.question}
-            onChange={(val) => setFormData({ ...formData, question: val })}
+            onChange={(val) =>
+              setFormData((prev) => ({
+                ...prev,
+                question: val,
+              }))
+            }
           />
         </div>
+
+        {/* <RichTextEditor
+          key={interview.question}
+          className="w-full border rounded-lg p-2"
+          value={interview.question}
+          onChange={(value) =>
+            setInterview((prev) => ({
+              ...prev,
+              question: value,
+            }))
+          }
+        /> */}
 
         {/* Explanation */}
         <div>
           <label className="font-medium">Explanation</label>
           <RichTextEditor
+            key={formData.explanation}
             value={formData.explanation}
-            onChange={(val) => setFormData({ ...formData, explanation: val })}
+            onChange={(val) =>
+              setFormData((prev) => ({
+                ...prev,
+                explanation: val,
+              }))
+            }
           />
         </div>
 
