@@ -8,6 +8,7 @@ function Topic() {
   const [subjects, setSubjects] = useState([]);
   const [subjectId, setSubjectId] = useState("");
   const [topics, setTopics] = useState([]);
+  const [slug, setSlug] = useState("");
   const [loading, setLoading] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -58,6 +59,7 @@ function Topic() {
           name: topic,
           subject: subjectId,
           description,
+          slug,
         });
 
         toast.success("Topic updated successfully");
@@ -66,6 +68,7 @@ function Topic() {
           name: topic,
           subject: subjectId,
           description,
+          slug,
         });
 
         toast.success("Topic added successfully");
@@ -128,6 +131,14 @@ function Topic() {
               onChange={(e) => setTopic(e.target.value)}
             />
 
+            <input
+              type="text"
+              placeholder="Slug"
+              className="border rounded p-2"
+              value={slug}
+              onChange={(e) => setSlug(e.target.value)}
+            />
+
             <textarea
               placeholder="Description"
               className="border rounded p-2"
@@ -137,7 +148,7 @@ function Topic() {
 
             <button
               onClick={handleSubmit}
-              className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              className="bg-blue-500 text-white p-2 rounded cursor-pointer hover:bg-blue-600"
             >
               {editId ? "Update Topic" : "Add Topic"}
             </button>
@@ -145,7 +156,7 @@ function Topic() {
             {editId && (
               <button
                 onClick={resetForm}
-                className="bg-gray-400 text-white p-2 rounded"
+                className="bg-gray-400 text-white p-2 rounded cursor-pointer hover:bg-gray-500"
               >
                 Cancel
               </button>
@@ -178,7 +189,7 @@ function Topic() {
 
                   <button
                     onClick={() => handleEdit(topic)}
-                    className="bg-yellow-400 px-3 py-1 rounded hover:bg-yellow-500"
+                    className="bg-yellow-400 px-3 py-1 rounded cursor-pointer hover:bg-yellow-500"
                   >
                     Edit
                   </button>
